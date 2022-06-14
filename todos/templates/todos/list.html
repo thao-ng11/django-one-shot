@@ -6,10 +6,18 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th colspan="2">Name</th>
                         <th>Number of items</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {% for todolist in todos_list %}
+                        <tr>
+                            <td>{{ todolist.name }}</td>
+                            {% comment %} <td>{{ todoist.items.all }}</td> {% endcomment %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
     </main>

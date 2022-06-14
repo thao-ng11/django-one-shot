@@ -1,10 +1,15 @@
 from django.shortcuts import render
-from django.views.generic.list import ListView
 
 from todos.models import TodoList
 
 
 # Create your views here.
-class TodoListView(ListView):
-    model = TodoList
-    template_name = "todos/list.html"
+
+
+def list_todos(request):
+    context = {"todos_list": TodoList.objects.all()}
+    return render(request, "todos/list.html", context)
+
+
+def detail_todos(request):
+    pass
