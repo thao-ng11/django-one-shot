@@ -20,7 +20,5 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("todos/", include("todos.urls")),
-    path(
-        "", RedirectView.as_view(url=reverse_lazy("to_dos_list")), name="home"
-    ),
+    path("", RedirectView.as_view(url=reverse_lazy("list_todos")), name="home"),
 ]

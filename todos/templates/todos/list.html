@@ -6,15 +6,18 @@
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2">Name</th>
+                        <th>Name</th>
                         <th>Number of items</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for todolist in todos_list %}
                         <tr>
-                            <td>{{ todolist.name }}</td>
-                            {% comment %} <td>{{ todoist.items.all }}</td> {% endcomment %}
+                            <td>
+                                <a href="{% url 'show_todolist' todolist.pk%}">
+                                    {{ todolist.name}}</a>
+                            </td>
+                            <td>{{ todolist.items.all | length}}</td> 
                         </tr>
                     {% endfor %}
                 </tbody>

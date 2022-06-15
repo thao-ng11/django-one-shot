@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <main>
+        <div>
+            <h1>{{ todos_detail.items.all }}</h1>
+            <h2>Tasks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Due date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tododetail in todos_detail%}
+                        <tr>
+                            <td>{{ tododetail }}</td>
+                            <td>{{ tododetail.due_date}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock content %}
