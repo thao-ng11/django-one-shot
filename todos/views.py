@@ -50,3 +50,10 @@ class TodoListDeleteView(DeleteView):
 #         "todos_edit": TodoItem.objects.filter(pk=pk),
 #     }
 #     return render(request, "todos/edit.html", context)
+
+
+class TodoItemCreateView(CreateView):
+    model = TodoItem
+    template_name = "todo_items/new.html"
+    fields = ["task", "due_date", "is_completed", "list"]
+    success_url = reverse_lazy("show_todolist")
