@@ -2,8 +2,14 @@
 {% block content %}
     <main>
         <div>
-            <h1>{{ todos_detail.items.all }}</h1>
-            <h2>Tasks</h2>
+            <h1>{{todos_detail.get.list}}</h1>
+            {{todos_list}}
+            <div> 
+                <p>
+                    <a href="{% url 'update_todolist' todos_detail.get.list.id%}">Edit</a> 
+                </p>
+            </div>
+            <h2>Tasks</h2> 
             <table>
                 <thead>
                     <tr>

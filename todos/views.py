@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from todos.models import TodoItem, TodoList
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
 
 
@@ -27,3 +27,20 @@ class TodoListCreateView(CreateView):
     template_name = "todos/new.html"
     fields = ["name"]
     success_url = reverse_lazy("list_todos")
+
+
+class TodoListUpdateView(UpdateView):
+    model = TodoList
+    template_name = "todos/edit.html"
+    fields = ["name"]
+    success_url = reverse_lazy("list_todos")
+
+
+# def edit_todos(request, pk):
+#     todo = TodoList.objects.filter(pk=pk).get()
+#     if request.method == "POST":
+#         form = TodoListForm (request.POST, instance=todo)
+#     context = {
+#         "todos_edit": TodoItem.objects.filter(pk=pk),
+#     }
+#     return render(request, "todos/edit.html", context)
