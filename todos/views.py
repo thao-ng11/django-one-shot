@@ -57,3 +57,10 @@ class TodoItemCreateView(CreateView):
     template_name = "todo_items/new.html"
     fields = ["task", "due_date", "is_completed", "list"]
     success_url = reverse_lazy("show_todolist")
+
+
+class TodoItemUpdateView(UpdateView):
+    model = TodoItem
+    template_name = "todo_items/edit.html"
+    fields = ["task", "due_date", "is_completed", "list"]
+    success_url = reverse_lazy("show_todolist")

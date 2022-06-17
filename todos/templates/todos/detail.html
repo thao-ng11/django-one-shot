@@ -3,7 +3,6 @@
     <main>
         <div>
             <h1>{{todos_detail.get.list}}</h1>
-            {{todos_list}}
             <div> 
                 <p>
                     <a href="{% url 'update_todolist' todos_detail.get.list.id%}">Edit</a> 
@@ -21,8 +20,9 @@
                 <tbody>
                     {% for tododetail in todos_detail%}
                         <tr>
-                            <td>{{ tododetail }}</td>
-                            <td>{{ tododetail.due_date}}</td>
+                            <td><a href="{% url 'update_todoitem' todos_detail.get.id %}">{{ tododetail }}</a></td>
+
+                            <td>{{ tododetail.due_date|date:"M d, Y"}}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
