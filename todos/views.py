@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from todos.models import TodoItem, TodoList
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 
@@ -33,6 +33,12 @@ class TodoListUpdateView(UpdateView):
     model = TodoList
     template_name = "todos/edit.html"
     fields = ["name"]
+    success_url = reverse_lazy("list_todos")
+
+
+class TodoListDeleteView(DeleteView):
+    model = TodoList
+    template_name = "todos/delete.html"
     success_url = reverse_lazy("list_todos")
 
 
